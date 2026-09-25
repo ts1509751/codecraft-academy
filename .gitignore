@@ -2,9 +2,6 @@
 node_modules/
 client/node_modules/
 
-# Production builds
-client/dist/
-
 # Local database and logs
 server/data/db.json
 *.log
