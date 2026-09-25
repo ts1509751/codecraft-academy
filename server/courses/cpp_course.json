@@ -1,0 +1,293 @@
+{
+  "id": "cpp-mastery",
+  "title": "C++ 零基礎到高效能程式設計",
+  "description": "從底層思維到現代 C++ 開發！親手撰寫編譯式強型別程式，掌握變數、邏輯、迴圈、函式、std::vector 容器與指標記憶體核心。",
+  "language": "cpp",
+  "totalXp": 850,
+  "levels": [
+    {
+      "id": "cpp-101",
+      "stage": 1,
+      "title": "第 1 關：踏入 C++ 殿堂與第一個程式",
+      "summary": "揭開編譯式語言的神秘面紗，理解 main 進入點、標頭檔 #include 與標準輸出 cout。",
+      "estimatedMinutes": 15,
+      "xp": 50,
+      "content": {
+        "intro": "### 為什麼學 C++？🏎️\n\n如果說 Python 是好開省力的自排休旅車，那麼 **C++ 就是追求極限效能的一級方程式賽車 (F1)**！從 3A 遊戲引擎 (Unreal Engine)、作業系統核心、瀏覽器底層到自動駕駛演算法，C++ 是全世界高效能軟體的基石。\n\n#### 1. 經典 C++ 骨架拆解：\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello, C++ World!\" << endl;\n    return 0;\n}\n```\n\n- **`#include <iostream>`**：預處理指令，引入「標準輸入輸出串流庫 (Input Output Stream)」，有了它才能使用 `cout`。\n- **`using namespace std;`**：使用標準命名空間，省去每次都要打 `std::cout` 的麻煩。\n- **`int main()`**：每個 C++ 程式都**必須且只能有一個 main 函式**，這是程式執行的第一個起點（進入點）。\n- **`cout << ...`**：`cout` (發音 see-out)，`<<` 是串流運算子，想像把右邊的文字推送到螢幕上。\n- **`endl`**：換行並清空緩衝區 (End of Line)。\n- **`分號 ;`**：**超級重要！** C++ 的每個敘述句結尾都必須加上分號 `;`，否則編譯器會拒絕執行！",
+        "tips": [
+          "千萬不要漏掉行尾的分號 `;`，這是新手最常遇到的編譯錯誤。",
+          "引號中可以加入 `\\n` 代表換行，例如 `cout << \"哈囉\\n\";`。",
+          "`return 0;` 代表程式正常結束執行並向作業系統回報無異常代碼。"
+        ]
+      },
+      "quiz": {
+        "question": "關於 C++ 程式架構，下列敘述何者是正確的？",
+        "options": [
+          "所有 C++ 程式執行都必須以 int main() 作為進入點，且敘述句結尾必須加上分號 ;",
+          "C++ 程式碼可以直接雙擊執行，不需要經過編譯器 (Compiler) 編譯",
+          "cout 是用來讀取鍵盤輸入的指令",
+          "在 C++ 中，大小寫完全沒有差異，Cout 與 cout 相同"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！C++ 是編譯式語言，進入點必須是 main()，且嚴格區分大小寫，每行命令結尾必須有分號 ;。"
+      },
+      "challenge": {
+        "title": "實作挑戰：經典問候與學習宣言",
+        "instruction": "請撰寫一個完整的 C++ 程式，輸出兩行文字：\n第一行輸出：你好，C++！\n第二行輸出：我準備好挑戰高效能程式設計了！",
+        "starterCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // 請在此處使用 cout 輸出指定內容\n    \n    return 0;\n}\n",
+        "expectedOutputs": [
+          "你好，C++！",
+          "我準備好挑戰高效能程式設計了！"
+        ],
+        "hint": "在 main 內部使用兩次 cout << \"...\" << endl; 記得結尾都要加分號！"
+      }
+    },
+    {
+      "id": "cpp-102",
+      "stage": 2,
+      "title": "第 2 關：強型別變數與資料型態",
+      "summary": "體驗 C++ 的強型別安全機制，認識 int, double, char, string 與 bool 的記憶體概念。",
+      "estimatedMinutes": 15,
+      "xp": 60,
+      "content": {
+        "intro": "### 什麼是「強型別」語言？🛡️\n\n在 Python 中，你只要寫 `x = 10`，Python 會自動幫你猜型別。\n但在 C++ 中，**你在建立變數時，必須清清楚楚告訴電腦這個變數是什麼型別**！這樣電腦才能在記憶體中預先分配剛好大小的空間。\n\n#### 常用基本資料型態：\n| 型別名稱 | 代表意義 | 範例 | 所佔記憶體 (典型) |\n| :--- | :--- | :--- | :--- |\n| `int` | 整數 (Integer) | `int age = 18;` | 4 bytes |\n| `double` | 雙精度浮點數 (小數) | `double pi = 3.14159;` | 8 bytes |\n| `char` | 單個字元 (單引號) | `char rank = 'A';` | 1 byte |\n| `bool` | 布林值 (true / false) | `bool isOnline = true;` | 1 byte |\n| `string` | 字串文字 (需 #include <string>) | `string name = \"艾倫\";` | 動態大小 |\n\n```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string hero = \"鋼鐵人\";\n    int power = 9000;\n    double battery = 99.5;\n\n    cout << \"英雄：\" << hero << \"，戰鬥力：\" << power << \"，電量：\" << battery << \"%\" << endl;\n    return 0;\n}\n```",
+        "tips": [
+          "單個字元 `char` 必須使用單引號（如 `'A'`），文字串列 `string` 必須使用雙引號（如 `\"Hello\"`）。",
+          "未初始化的變數可能包含記憶體中的垃圾殘留值，養成宣告時順手賦予初始值的好習慣！"
+        ]
+      },
+      "quiz": {
+        "question": "在 C++ 中，若要宣告一個儲存「商品單價（可能包含小數點）」的變數，應該選用哪一種資料型態最適合？",
+        "options": [
+          "double",
+          "int",
+          "char",
+          "bool"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！double (浮點數) 用於表示帶有小數點的精確數值；int 只能存放整數。"
+      },
+      "challenge": {
+        "title": "實作挑戰：計算圓周長",
+        "instruction": "請宣告一個整數半徑 `int radius = 5;` 與浮點數 `double pi = 3.14;`。\n計算出周長 `circumference`（公式：2 * pi * radius），並輸出：\n半徑 5 的圓周長為: 31.4",
+        "starterCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int radius = 5;\n    double pi = 3.14;\n    // 請計算周長並使用 cout 輸出指定格式\n\n    return 0;\n}\n",
+        "expectedOutputs": [
+          "半徑 5 的圓周長為: 31.4"
+        ],
+        "hint": "double circumference = 2 * pi * radius; 接著用 cout 串接輸出。"
+      }
+    },
+    {
+      "id": "cpp-103",
+      "stage": 3,
+      "title": "第 3 關：鍵盤輸入與人機互動 (cin)",
+      "summary": "讓程式傾聽使用者的聲音！掌握 std::cin 與流運算子 >> 接收鍵盤輸入。",
+      "estimatedMinutes": 15,
+      "xp": 60,
+      "content": {
+        "intro": "### 雙向互動：cin (Console In) 📥\n\n有了輸出 `cout <<`，我們還需要能夠讀取使用者的鍵盤輸入：**`cin >>`**！\n\n- `cout <<`：方向朝左（資料推向終端機）\n- `cin >>`：方向朝右（資料從終端機推入變數中）\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int age;\n    cout << \"請輸入您的年齡：\";\n    cin >> age;\n\n    cout << \"再過 5 年，您將會是 \" << (age + 5) << \" 歲！\" << endl;\n    return 0;\n}\n```",
+        "tips": [
+          "千萬別把方向搞混：`cin >> 變數` (尖頭指向變數)，`cout << 資料` (尖頭指向 cout)。",
+          "cin 以空格、Tab 或 Enter 作為分隔符號。"
+        ]
+      },
+      "quiz": {
+        "question": "關於 cin 的語法方向，下列哪一個是正確的讀取整數變數 num 的方式？",
+        "options": [
+          "cin >> num;",
+          "cin << num;",
+          "num >> cin;",
+          "cin(num);"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！cin 使用萃取運算子 >>，方向指向要存入的變數：cin >> num;"
+      },
+      "challenge": {
+        "title": "實作挑戰：矩形雙維度計算",
+        "instruction": "請模擬一個給定寬度 `w = 8` 與長度 `h = 15` 的計算，計算其面積 `area`。\n輸出：寬 8 高 15 的矩形面積為: 120",
+        "starterCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int w = 8;\n    int h = 15;\n    // 計算面積並輸出\n    \n    return 0;\n}\n",
+        "expectedOutputs": [
+          "寬 8 高 15 的矩形面積為: 120"
+        ],
+        "hint": "計算 int area = w * h; 然後輸出文字。"
+      }
+    },
+    {
+      "id": "cpp-104",
+      "stage": 4,
+      "title": "第 4 關：條件判斷與邏輯控制 (if-else)",
+      "summary": "學會用 if, else if, else 為 C++ 程式賦予邏輯決策能力，掌握條件式大括號與布林運算。",
+      "estimatedMinutes": 20,
+      "xp": 70,
+      "content": {
+        "intro": "### 條件控制與邏輯判斷 🔀\n\n在 C++ 中，條件必須寫在小括號 `()` 裡，而滿足條件後要執行的區塊通常放在大括號 `{}` 中：\n\n```cpp\nint score = 88;\n\nif (score >= 90) {\n    cout << \"等級：特優 (A+)\" << endl;\n} else if (score >= 60) {\n    cout << \"等級：合格通過！\" << endl;\n} else {\n    cout << \"等級：不合格，請補考！\" << endl;\n}\n```\n\n#### 邏輯運算子 (Logical Operators)：\n- `&&`：邏輯「且」(AND)，兩個條件都為真才算真。\n- `||`：邏輯「或」(OR)，任一條件為真就算真。\n- `!`：邏輯「非」(NOT)，將結果反轉（真變假、假變真）。",
+        "tips": [
+          "如果 if 區塊只有一行敘述，大括號可以省略，但強烈建議初學者一律保留大括號以提升可讀性與避免潛在 bug。",
+          "在條件式中檢查是否相等，請務必寫 `==` 而非 `=`！"
+        ]
+      },
+      "quiz": {
+        "question": "在 C++ 中，表示「年齡 age 大於等於 18 且具有駕照 hasLicense」的條件式應該寫作？",
+        "options": [
+          "if (age >= 18 && hasLicense)",
+          "if (age >= 18 and hasLicense)",
+          "if (age >= 18 & hasLicense)",
+          "if age >= 18 && hasLicense"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！C++ 的條件必須包含在圓括號 ( ) 內，且邏輯 AND 運算子是 &&。"
+      },
+      "challenge": {
+        "title": "實作挑戰：密碼長度安全檢查",
+        "instruction": "設定一個密碼長度變數 `int passLen = 9;`。\n若 `passLen >= 8`，輸出：密碼強度合格！\n否則輸出：密碼長度過短，至少需要 8 碼！",
+        "starterCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int passLen = 9;\n    // 請使用 if-else 判斷並輸出結果\n\n    return 0;\n}\n",
+        "expectedOutputs": [
+          "密碼強度合格！"
+        ],
+        "hint": "使用 if (passLen >= 8) { cout << \"密碼強度合格！\" << endl; }"
+      }
+    },
+    {
+      "id": "cpp-105",
+      "stage": 5,
+      "title": "第 5 關：重複運算與迴圈 (for & while)",
+      "summary": "深入探討 C++ 的 for 迴圈三部曲（初始化、條件、步進），以及 while 條件迴圈的威力。",
+      "estimatedMinutes": 20,
+      "xp": 80,
+      "content": {
+        "intro": "### C++ 的核心引擎：for 迴圈 🔁\n\nC++ 的 `for` 迴圈語法結構非常清晰，包含三個關鍵環節：\n\n```cpp\nfor (初始化變數; 執行條件; 每次循環步進) {\n    // 循環執行的內容\n}\n```\n\n範例：\n```cpp\nfor (int i = 1; i <= 5; i++) {\n    cout << \"第 \" << i << \" 圈跑完！\" << endl;\n}\n```\n- `int i = 1`：從 1 開始。\n- `i <= 5`：只要 i 還小於等於 5 就繼續跑。\n- `i++`：每跑完一次，i 就加 1（遞增運算子）。",
+        "tips": [
+          "`i++` 是 C++ 最具代表性的寫法，等同於 `i = i + 1`。",
+          "若想要倒數，可以寫 `for (int i = 5; i >= 1; i--)`。"
+        ]
+      },
+      "quiz": {
+        "question": "迴圈 for (int i = 0; i < 4; i++) 總共會執行幾次？",
+        "options": [
+          "4 次 (i 分別為 0, 1, 2, 3)",
+          "5 次 (i 分別為 0, 1, 2, 3, 4)",
+          "3 次 (i 分別為 1, 2, 3)",
+          "無窮次"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！i 從 0 開始，依序跑 0, 1, 2, 3（當 i 變成 4 時，條件 4 < 4 不成立終止），所以總共執行 4 次。"
+      },
+      "challenge": {
+        "title": "實作挑戰：累乘計算階乘 (Factorial)",
+        "instruction": "請使用 for 迴圈計算 5 的階乘 (5! = 1 * 2 * 3 * 4 * 5)。\n最後輸出：5 的階乘為: 120",
+        "starterCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int result = 1;\n    // 請使用 for 迴圈計算 1 乘到 5\n\n    // 輸出指定結果\n\n    return 0;\n}\n",
+        "expectedOutputs": [
+          "5 的階乘為: 120"
+        ],
+        "hint": "for (int i = 1; i <= 5; i++) { result *= i; }"
+      }
+    },
+    {
+      "id": "cpp-106",
+      "stage": 6,
+      "title": "第 6 關：函式封裝與傳參考 (Pass by Reference)",
+      "summary": "揭曉 C++ 最具亮點的記憶體觀念：值傳遞 (Pass by Value) 與參考傳遞 (Pass by Reference &)。",
+      "estimatedMinutes": 25,
+      "xp": 80,
+      "content": {
+        "intro": "### 模組化積木：函式與傳值傳址 📦\n\n在 C++ 中定義函式，必須在最前面明確指定「回傳值的型別」（如果不需要回傳任何值，使用 `void`）：\n\n```cpp\nint add(int a, int b) {\n    return a + b;\n}\n```\n\n#### 關鍵核心：傳值 vs 傳參考 (&)\n1. **Pass by Value (傳值)**：預設情況下，C++ 會**複製**一份參數傳進函式，在函式內修改它，外部原本的變數完全不會受影響。\n2. **Pass by Reference (傳參考 `&`)**：在型態後面加上 `&`，代表「別名/直接指向原本那塊記憶體」！函式內修改它，外部原本的變數**真的會跟著改變**！而且效能極高（不需要耗時複製大物件）！\n\n```cpp\nvoid doubleValue(int &num) {\n    num = num * 2;\n}\n\nint main() {\n    int score = 50;\n    doubleValue(score);\n    cout << score << endl; // 印出 100！原本的 score 被改變了！\n}\n```",
+        "tips": [
+          "如果不希望函式內意外修改傳參考的值，可以加上 `const`，例如 `void printText(const string &s)`。",
+          "自訂函式若寫在 main 函式後方，需要先在 main 上方寫出「函式原型宣告 (Function Prototype)」。"
+        ]
+      },
+      "quiz": {
+        "question": "若函式簽章為 void modify(int &x)，參數前面加上 & 符號的意義是什麼？",
+        "options": [
+          "表示採用「傳參考 (Pass by Reference)」，函式內對 x 的修改會直接影響外部原本的變數",
+          "表示 x 只能接受偶數輸入",
+          "表示 x 會自動轉換為字串",
+          "表示這是一個只讀唯讀變數"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！& 符號宣告了參考 (Reference)，讓函式可以直接操作原變數的記憶體位置，避免複製開銷並允許直接修改。"
+      },
+      "challenge": {
+        "title": "實作挑戰：寫一個計算最大值的函式",
+        "instruction": "請定義函式 int getMax(int a, int b)，回傳兩者中較大的一個值。\n在 main 函式中呼叫 getMax(42, 88)，並輸出：較大值為: 88",
+        "starterCode": "#include <iostream>\nusing namespace std;\n\n// 請在此實作 getMax 函式\n\n\nint main() {\n    int ans = getMax(42, 88);\n    cout << \"較大值為: \" << ans << endl;\n    return 0;\n}\n",
+        "expectedOutputs": [
+          "較大值為: 88"
+        ],
+        "hint": "int getMax(int a, int b) { if (a > b) return a; else return b; }"
+      }
+    },
+    {
+      "id": "cpp-107",
+      "stage": 7,
+      "title": "第 7 關：現代容器 std::vector 動態陣列",
+      "summary": "告別傳統靜態陣列的固定大小限制，掌握 C++ 標準函式庫中最常用的動態陣列 vector。",
+      "estimatedMinutes": 25,
+      "xp": 90,
+      "content": {
+        "intro": "### 告別舊時代：標準容器 std::vector 🚀\n\n傳統 C 語言風格陣列 `int arr[5];` 大小固定且容易發生緩衝區溢位。現代 C++ 開發中，大家最愛用的是 **`std::vector`（動態陣列）**！它會自動根據資料多寡調整大小。\n\n```cpp\n#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> scores;\n\n    scores.push_back(85);\n    scores.push_back(92);\n    scores.push_back(78);\n\n    cout << \"總筆數：\" << scores.size() << endl;\n    cout << \"第一筆：\" << scores[0] << endl;\n\n    for (int s : scores) {\n        cout << \"成績：\" << s << endl;\n    }\n    return 0;\n}\n```",
+        "tips": [
+          "記得要 `#include <vector>` 才能使用 vector 容器。",
+          "使用 `.push_back(值)` 新增項目，使用 `.size()` 取得目前長度。",
+          "透過現代 C++ 的 `for (auto item : container)` 可以優雅遍歷任何容器！"
+        ]
+      },
+      "quiz": {
+        "question": "若想要在 vector<string> names 容器的末端新增一個新名字，應該呼叫哪一個成員函式？",
+        "options": [
+          "names.push_back(\"王小明\");",
+          "names.append(\"王小明\");",
+          "names.add(\"王小明\");",
+          "names.insert_end(\"王小明\");"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！std::vector 使用 push_back() 將元素推進容器末尾。"
+      },
+      "challenge": {
+        "title": "實作挑戰：計算 vector 總成績",
+        "instruction": "建立一個容器 vector<int> grades = {90, 80, 100, 70};。\n使用迴圈計算所有成績總和 sum，最後輸出：\n4 位學生的總成績為: 340",
+        "starterCode": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> grades = {90, 80, 100, 70};\n    int sum = 0;\n    // 請計算總和並輸出指定格式\n\n    return 0;\n}\n",
+        "expectedOutputs": [
+          "4 位學生的總成績為: 340"
+        ],
+        "hint": "for (int g : grades) { sum += g; } 接著印出 grades.size() 與 sum"
+      }
+    },
+    {
+      "id": "cpp-108",
+      "stage": 8,
+      "title": "第 8 關：指標與記憶體位址 (Pointers)",
+      "summary": "揭密 C++ 最強大也最令人敬畏的神器：指標變數、位址運算子 & 與解參考運算子 *。",
+      "estimatedMinutes": 30,
+      "xp": 100,
+      "content": {
+        "intro": "### C++ 靈魂之源：指標 (Pointer) 🧠\n\n電腦記憶體就像一條長長的街，每間房子都有自己的**門牌號碼（記憶體位址，如 0x7ffd9b）**。\n- 一般變數：存放「內容資料」（例如數字 42）。\n- **指標變數**：存放的是**「別人的門牌位址」**！\n\n```cpp\nint val = 100;\nint *ptr = &val; // & 符號用來取得 val 的記憶體位址\n\ncout << \"val 的值：\" << val << endl;\ncout << \"val 的位址：\" << ptr << endl;\ncout << \"透過指標讀取：\" << *ptr << endl;\n\n*ptr = 200; // 透過指標直接修改原本記憶體中的內容！\ncout << \"val 被改變為：\" << val << endl;\n```",
+        "tips": [
+          "`&變數` 代表「取得變數的記憶體位址 (Address-of)」。",
+          "`*指標` 代表「順著位址走過去，讀取或寫入裡面的內容 (Dereference)」。",
+          "未指向有效記憶體的指標請務必初始化為 `nullptr`（空指標），避免野指標造成系統崩潰。"
+        ]
+      },
+      "quiz": {
+        "question": "若 int a = 50; int *p = &a;，則運算式 *p 的值是多少？",
+        "options": [
+          "50",
+          "a 的記憶體位址 (例如 0x7ffe...)",
+          "nullptr",
+          "編譯錯誤"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！p 存的是 a 的位址，透過 *p (解參考) 取得的就是位址內部裝的實際數值 50。"
+      },
+      "challenge": {
+        "title": "實作挑戰：透過指標雙倍數值",
+        "instruction": "給定 int hp = 75;。\n宣告指標 int *p = &hp;，透過該指標將 hp 的值乘上 2（即 *p = *p * 2;）。\n最後輸出：強化後 HP 數值為: 150",
+        "starterCode": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int hp = 75;\n    // 請宣告指標並修改數值\n\n    // 輸出指定結果\n\n    return 0;\n}\n",
+        "expectedOutputs": [
+          "強化後 HP 數值為: 150"
+        ],
+        "hint": "int *p = &hp; *p = *p * 2; cout << \"強化後 HP 數值為: \" << hp << endl;"
+      }
+    }
+  ]
+}

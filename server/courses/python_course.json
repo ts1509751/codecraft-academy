@@ -1,0 +1,292 @@
+{
+  "id": "python-mastery",
+  "title": "Python 零基礎到獨立開發全攻略",
+  "description": "專為程式小白打造！從第一行 Hello World，循序漸進掌握變數、邏輯判斷、迴圈、函式、資料結構與物件導向，親手打造多個實戰專案。",
+  "language": "python",
+  "totalXp": 800,
+  "levels": [
+    {
+      "id": "py-101",
+      "stage": 1,
+      "title": "第 1 關：初探程式世界與 print 輸出",
+      "summary": "踏出程式設計的第一步，學習如何向世界打招呼，理解程式執行流程與註解。",
+      "estimatedMinutes": 10,
+      "xp": 50,
+      "content": {
+        "intro": "### 歡迎來到程式設計的奇幻世界！🎉\n\n學寫程式就像學會一種「能指揮電腦幫你工作的魔法咒語」。無論是製作 AI、分析大數據、寫遊戲還是打造網站，Python 都是全世界最受歡迎、最親民也最強大的程式語言。\n\n#### 1. 什麼是 print() 函式？\n電腦平時只會在記憶體裡默默運算，如果我們想要在螢幕上看見結果，就需要呼叫 `print()`。\n`print` 就是「列印 / 印出」的意思，括號裡面放入你想要輸出的內容。\n\n```python\nprint(\"Hello, World!\")\n```\n\n#### 2. 字串與引號\n當你想印出純文字時，必須用**單引號 `'...'`** 或 **雙引號 `\"...\"`** 把文字包起來，這在程式中被稱作「字串 (String)」。如果忘記加引號，Python 就會以為這是一個變數名稱，進而報錯！\n\n#### 3. 程式碼的筆記：註解 (Comment)\n在 Python 中，以 `#` 開頭的文字是**註解**。電腦執行時會自動忽略它。註解是寫給「人」看的，用來提醒自己或隊友這段程式在做什麼。\n\n```python\n# 這是一行註解，電腦不會執行它\nprint(\"這行會被執行！\")\n```",
+        "tips": [
+          "Python 中的大小寫是有分別的！print 全為小寫，寫成 Print 電腦會看不懂。",
+          "引號必須成對出現，不能前面用單引號後面用雙引號。",
+          "若想要印出多行，可以使用多次 print()，或者使用多行字串三引號 \"\"\"...\"\"\"。"
+        ]
+      },
+      "quiz": {
+        "question": "關於 Python 的 print() 函式，下列哪一項敘述是正確的？",
+        "options": [
+          "印出純文字時，必須使用成對的單引號或雙引號將內容包裹起來",
+          "以 # 開頭的註解內容會被電腦編譯執行並印在螢幕上",
+          "Print() 也可以正常執行，大小寫在 Python 中沒有任何區別",
+          "若想要輸出內容，不需要加上括號 ()"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！在 Python 裡字串需要用單引號或雙引號包覆。Python 嚴格區分大小寫（print 不可寫成 Print），以 # 開頭的註解電腦會直接忽略。"
+      },
+      "challenge": {
+        "title": "實作挑戰：自介小卡片",
+        "instruction": "請使用 print() 函式印出兩行內容：\n第一行印出：「你好，我是未來的軟體工程師！」\n第二行印出：「我正在學習 Python 程式設計！」",
+        "starterCode": "# 請在下方寫出你的程式碼\n# 第一行印出：你好，我是未來的軟體工程師！\n# 第二行印出：我正在學習 Python 程式設計！\n\n",
+        "expectedOutputs": [
+          "你好，我是未來的軟體工程師！",
+          "我正在學習 Python 程式設計！"
+        ],
+        "hint": "使用兩個 print() 函式，分別將兩段文字用雙引號包起來印出即可！"
+      }
+    },
+    {
+      "id": "py-102",
+      "stage": 2,
+      "title": "第 2 關：變數與資料的百寶箱",
+      "summary": "認識記憶體中的標籤盒「變數」，並學會整數、浮點數、字串與布林值四種基本型態。",
+      "estimatedMinutes": 15,
+      "xp": 60,
+      "content": {
+        "intro": "### 什麼是變數 (Variable)？📦\n\n想像變數就是一個**貼有名字的透明收納盒**。你可以把任何資料（數字、文字、狀態）放進盒子裡，之後只要叫出這個盒子的名字，就能取出裡面的東西！\n\n在 Python 中，宣告變數超級簡單，只要用一個等號 `=` 即可：\n\n```python\nhero_name = \"亞瑟\"    # 盒子名字叫 hero_name，裡面放了字串 \"亞瑟\"\nlevel = 5            # 盒子名字叫 level，裡面放了整數 5\nis_alive = True      # 布林值：代表角色是否活著\n```\n\n> ⚠️ 注意：在程式中，單等號 `=` 不是數學上的「等於」，而是**「賦值 (Assign)」**，意思是「把右邊的值存進左邊的盒子」。\n\n#### Python 四大基本資料型別：\n1. **整數 (int)**：例如 `42`, `-7`, `0`\n2. **浮點數 / 小數 (float)**：例如 `3.14`, `-0.5`\n3. **字串 (str)**：例如 `\"Python\"`, `'程式很酷'`\n4. **布林值 (bool)**：只有兩種狀態 `True` (真) 或 `False` (假)，首字必須大寫！\n\n#### 現代魔法：f-string 字串格式化\n想要把變數優雅地組合成句子，最推薦使用 **f-string**（在字串前加上字母 `f`，變數用大括號 `{}` 包起來）：\n\n```python\nplayer = \"愛麗絲\"\nscore = 980\nprint(f\"玩家 {player} 的最終得分為：{score} 分！\")\n```",
+        "tips": [
+          "變數名稱不能以數字開頭（例如 1player 是非法的，但 player1 可以）。",
+          "變數命名建議使用蛇形命名法（snake_case），例如 user_score、total_price。",
+          "使用 type(變數) 可以查詢該變數目前裝載的資料型別。"
+        ]
+      },
+      "quiz": {
+        "question": "若要將分數變數 score = 100 印出成「目前得分：100」，下列哪種 f-string 寫法最正確？",
+        "options": [
+          "print(f\"目前得分：{score}\")",
+          "print(\"目前得分：{score}\")",
+          "print(f\"目前得分：score\")",
+          "print(\"目前得分：\" + score)"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！f-string 必須在引號前面加上字母 f，並在大括號 {} 內填入變數名稱，Python 才會自動替換變數的值。"
+      },
+      "challenge": {
+        "title": "實作挑戰：角色屬性面板",
+        "instruction": "請宣告三個變數：\n1. name 設為 \"勇者小明\"\n2. hp 設為 150\n3. attack 設為 35\n然後使用 f-string 印出：勇者小明 狀態 -> 生命值: 150, 攻擊力: 35",
+        "starterCode": "# 請在此宣告變數並使用 f-string 格式化輸出\nname = \"勇者小明\"\n# 補齊 hp 與 attack 變數，並印出指定格式\n",
+        "expectedOutputs": [
+          "勇者小明 狀態 -> 生命值: 150, 攻擊力: 35"
+        ],
+        "hint": "設定 hp = 150, attack = 35，接著執行 print(f\"{name} 狀態 -> 生命值: {hp}, 攻擊力: {attack}\")"
+      }
+    },
+    {
+      "id": "py-103",
+      "stage": 3,
+      "title": "第 3 關：運算子與數學魔術",
+      "summary": "學會基本四則運算、整數除法、取餘數以及比較大小，讓程式具備計算能力。",
+      "estimatedMinutes": 15,
+      "xp": 60,
+      "content": {
+        "intro": "### 電腦就是最厲害的計算機！⚡\n\n在寫程式時，我們經常需要進行數值運算。Python 支援所有直觀的數學運算子：\n\n| 運算子 | 意義 | 範例 | 結果 |\n| :--- | :--- | :--- | :--- |\n| `+` | 加法 | `10 + 5` | `15` |\n| `-` | 減法 | `10 - 5` | `5` |\n| `*` | 乘法 | `10 * 5` | `50` |\n| `/` | 浮點除法 | `10 / 4` | `2.5` |\n| `//` | 整除 (無條件捨去) | `10 // 4` | `2` |\n| `%` | 取餘數 (Modulo) | `10 % 3` | `1` |\n| `**` | 次方 (指數) | `2 ** 3` | `8` |\n\n#### 為什麼「取餘數 %」這麼常用？\n- **判斷奇數還是偶數**：如果 `n % 2 == 0`，就一定是偶數；若為 `1` 則是奇數！\n- **時間換算**：75 秒等於幾分幾秒？`75 // 60 = 1` 分，`75 % 60 = 15` 秒！",
+        "tips": [
+          "注意除號 / 運算出來的結果永遠是浮點數 (float)，即使是 4 / 2 結果也是 2.0。",
+          "運算順序與數學相同：先乘除後加減，有括號 () 的最優先計算。"
+        ]
+      },
+      "quiz": {
+        "question": "在 Python 中，運算式 17 % 5 的計算結果是什麼？",
+        "options": [
+          "2",
+          "3",
+          "3.4",
+          "1"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！17 除以 5 的商數是 3，餘數是 2（17 = 5 * 3 + 2），取餘數符號 % 取得的就是餘數 2。"
+      },
+      "challenge": {
+        "title": "實作挑戰：商品折扣與結帳總計",
+        "instruction": "有一件商品原價 price = 800 元，目前打 8 折（折扣率 discount = 0.8），且買了 qty = 3 件。\n請計算出總金額 total 並使用 print 印出：\n結帳總金額: 1920.0 元",
+        "starterCode": "price = 800\ndiscount = 0.8\nqty = 3\n# 請計算 total 並印出指定內容\n",
+        "expectedOutputs": [
+          "結帳總金額: 1920.0 元"
+        ],
+        "hint": "計算公式為 total = price * discount * qty，然後使用 print(f\"結帳總金額: {total} 元\")"
+      }
+    },
+    {
+      "id": "py-104",
+      "stage": 4,
+      "title": "第 4 關：程式的分岔路口 (if-elif-else)",
+      "summary": "讓你的程式擁有大腦！根據不同的條件做出不同的決策與判斷。",
+      "estimatedMinutes": 20,
+      "xp": 70,
+      "content": {
+        "intro": "### 如果...否則...：條件判斷 🚦\n\n程式之所以聰明，是因為它可以根據不同的情況決定走哪條路。這就像現實生活中的決策：「如果明天下雨，我就帶傘；否則我就穿球鞋」。\n\n#### 基本語法結構：\n```python\nscore = 85\n\nif score >= 90:\n    print(\"等級：A 級優秀！\")\nelif score >= 60:\n    print(\"等級：B 級及格！\")\nelse:\n    print(\"等級：C 級需再加油！\")\n```\n\n#### 三大黃金法則：\n1. **條件結尾必須有冒號 `:`**：這告訴 Python 條件結束，準備進入程式碼區塊。\n2. **縮排 (Indentation)**：Python 依靠**縮排（通常是 4 個空格）**來判斷哪些程式屬於該條件下。如果沒有對齊縮排，會直接噴出 IndentationError！\n3. **比較運算子**：\n   - `==`：等於（請記住是兩個等號，單等號是賦值！）\n   - `!=`：不等於\n   - `>`, `<`, `>=`, `<=`：大於、小於、大於等於、小於等於",
+        "tips": [
+          "最常見的初學者 bug 就是把比較寫成單個 =，請牢記「兩個等號才是問它是不是相等」。",
+          "可以使用 and (且) 與 or (或) 來組合多個條件，例如：if age >= 18 and has_ticket:。"
+        ]
+      },
+      "quiz": {
+        "question": "關於 Python 中的 if 敘述，下列哪一個寫法語法完全正確？",
+        "options": [
+          "if x == 10:\n    print(\"Bingo\")",
+          "if x = 10:\n    print(\"Bingo\")",
+          "if (x == 10) {\n    print(\"Bingo\");\n}",
+          "if x == 10\n    print(\"Bingo\")"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！判斷相等需使用雙等號 ==，條件結尾必須有冒號 :，且內部的敘述句必須有縮排。"
+      },
+      "challenge": {
+        "title": "實作挑戰：溫度警報器",
+        "instruction": "請檢查變數 temp = 32：\n若 temp >= 30，印出：警告：天氣過熱，請多補充水分！\n若 temp < 15，印出：提醒：天氣寒冷，請注意保暖！\n否則印出：天氣舒適宜人！",
+        "starterCode": "temp = 32\n# 請使用 if-elif-else 完成判斷\n",
+        "expectedOutputs": [
+          "警告：天氣過熱，請多補充水分！"
+        ],
+        "hint": "使用 if temp >= 30: 接著縮排印出警告字串。"
+      }
+    },
+    {
+      "id": "py-105",
+      "stage": 5,
+      "title": "第 5 關：讓電腦替你打工 (迴圈 Loop)",
+      "summary": "掌握 for 迴圈與 while 迴圈，利用電腦每秒億萬次的運算速度消滅重複勞動。",
+      "estimatedMinutes": 20,
+      "xp": 80,
+      "content": {
+        "intro": "### 不要重複自己！讓電腦重複千百萬次 🔄\n\n身為人類，手動抄寫 100 次相同的文字會令人崩潰；但對電腦來說，跑 10 萬次重複的動作不用一秒鐘！這就是**迴圈 (Loop)** 的超能力。\n\n#### 1. for 迴圈與 range()\n當你知道「要重複幾次」時，通常首選 `for` 迴圈配合 `range()`：\n\n```python\nfor i in range(5):\n    print(f\"正在執行第 {i} 次\")\n```\n> ⚠️ 記住：`range(5)` 會產生 `0, 1, 2, 3, 4`，**從 0 開始，且不包含 5**（共 5 個數字）！\n\n#### 2. while 迴圈\n當你想「在某個條件滿足時持續執行」，直到條件變成 False 為止，使用 `while`：\n\n```python\ncount = 3\nwhile count > 0:\n    print(f\"倒數：{count}\")\n    count -= 1\nprint(\"發射！🚀\")\n```",
+        "tips": [
+          "寫 while 迴圈時，務必確保終止條件會在某個時刻被滿足，否則會陷入無窮迴圈。",
+          "range(1, 10) 代表從 1 到 9，包含頭不包含尾。"
+        ]
+      },
+      "quiz": {
+        "question": "程式碼 for i in range(1, 6): 的迴圈，變數 i 在最後一次執行的數值是多少？",
+        "options": [
+          "5",
+          "6",
+          "4",
+          "0"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！range(start, stop) 包含起點 start，但不包含終點 stop。因此 range(1, 6) 產生的數列是 1, 2, 3, 4, 5，最後一次為 5。"
+      },
+      "challenge": {
+        "title": "實作挑戰：計算 1 到 10 的總和",
+        "instruction": "請使用 for 迴圈與 range() 計算從 1 加到 10 的連續整數總和（1+2+3+...+10）。\n最後印出：1 到 10 的總和為: 55",
+        "starterCode": "total = 0\n# 請使用 for 迴圈累加 1 到 10 到 total 中\n\n# 最後印出結果\n",
+        "expectedOutputs": [
+          "1 到 10 的總和為: 55"
+        ],
+        "hint": "使用 for n in range(1, 11): 接著在迴圈內執行 total += n"
+      }
+    },
+    {
+      "id": "py-106",
+      "stage": 6,
+      "title": "第 6 關：函式封裝與積木式思考 (def)",
+      "summary": "將常用的功能打包成獨立的函式，學會傳入參數與 return 回傳值，讓程式碼簡潔優雅。",
+      "estimatedMinutes": 20,
+      "xp": 80,
+      "content": {
+        "intro": "### 程式設計師的積木：函式 (Function) 🧩\n\n如果你在程式中多處都要做同一件事（例如計算圓面積、驗證密碼強度），你不需要一直複製貼上同樣的程式碼。你只需要**定義一個函式**，需要時呼叫它即可！\n\n#### 1. 如何定義函式？\n使用關鍵字 `def`（define 的縮寫）：\n\n```python\ndef greet(name):\n    return f\"嗨，{name}！今天寫 code 了嗎？\"\n\nmessage = greet(\"小美\")\nprint(message)\n```\n\n#### 2. return 回傳值是什麼？\n`return` 就像函式工作完成後「交出的一份成果報告」。\n一旦執行到 `return`，函式就會**立即結束**並把結果送回呼叫它的地方。",
+        "tips": [
+          "函式命名應盡量使用動詞或具有意義的詞彙，如 calculate_total、is_valid_email。",
+          "函式內的變數屬於區域變數 (Local Variable)，在函式外部無法直接讀取。"
+        ]
+      },
+      "quiz": {
+        "question": "關於 Python 函式中的 return 關鍵字，下列敘述何者正確？",
+        "options": [
+          "return 會將計算結果回傳給呼叫端，並立刻結束該函式的執行",
+          "一個函式內部只能寫一行程式碼，必須立刻 return",
+          "return 會把文字直接顯示在作業系統桌面視窗上",
+          "函式不能回傳數字，只能回傳文字字串"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！return 的功用是將成果值送回呼叫點，並立即終止該函式的執行流程。"
+      },
+      "challenge": {
+        "title": "實作挑戰：計算矩形面積函式",
+        "instruction": "請定義一個名為 calc_area(width, height) 的函式，回傳寬度乘以高度的結果。\n並呼叫 calc_area(12, 5)，將結果印出為：矩形面積為: 60",
+        "starterCode": "# 請在此定義 calc_area 函式\n\n\n# 測試呼叫並輸出結果\narea = calc_area(12, 5)\nprint(f\"矩形面積為: {area}\")\n",
+        "expectedOutputs": [
+          "矩形面積為: 60"
+        ],
+        "hint": "在函式內部寫 return width * height"
+      }
+    },
+    {
+      "id": "py-107",
+      "stage": 7,
+      "title": "第 7 關：資料容器 (List 串列與 Dict 字典)",
+      "summary": "學會用串列存儲多筆資料，並用鍵值對字典快速查找，奠定資料處理的核心基礎。",
+      "estimatedMinutes": 25,
+      "xp": 90,
+      "content": {
+        "intro": "### 不只存單一數字，我們要管理大量資料！📚\n\n#### 1. 串列 (List)：有順序的清單\n使用中括號 `[]` 包裹，各項目用逗號隔開：\n```python\nskills = [\"Python\", \"HTML\", \"C++\"]\nprint(skills[0])       # \"Python\" (索引從 0 開始！)\nskills.append(\"SQL\")   # 新增元素到最後面\nprint(len(skills))     # 4 (總長度)\n```\n\n#### 2. 字典 (Dictionary)：查閱鍵值對 (Key-Value)\n使用大括號 `{}`，透過「關鍵字 (Key)」精確找到對應的「資料 (Value)」：\n```python\nstudent = {\n    \"name\": \"張大寶\",\n    \"grade\": \"高一\",\n    \"score\": 95\n}\nprint(student[\"name\"])    # \"張大寶\"\nstudent[\"score\"] = 98     # 更新值\n```",
+        "tips": [
+          "讀取串列索引時，千萬不要超過長度減一，否則會產生 IndexError: list index out of range。",
+          "想要查看字典中是否包含某個 Key，可以使用 if \"key\" in my_dict:。"
+        ]
+      },
+      "quiz": {
+        "question": "若 my_list = [\"蘋果\", \"香蕉\", \"芒果\"]，那麼 my_list[1] 會取得哪一個項目？",
+        "options": [
+          "香蕉",
+          "蘋果",
+          "芒果",
+          "IndexError 錯誤"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！程式世界的索引是從 0 開始計數的：my_list[0] 是「蘋果」，my_list[1] 則是第二個元素「香蕉」。"
+      },
+      "challenge": {
+        "title": "實作挑戰：購物清單總計統計",
+        "instruction": "有串列 prices = [120, 45, 300, 80]。\n請計算總金額 total，並印出：\n購物車共 4 件商品，總價 545 元",
+        "starterCode": "prices = [120, 45, 300, 80]\n# 請計算總金額與長度並輸出\n",
+        "expectedOutputs": [
+          "購物車共 4 件商品，總價 545 元"
+        ],
+        "hint": "可以使用 sum(prices) 取得總和，len(prices) 取得件數。"
+      }
+    },
+    {
+      "id": "py-108",
+      "stage": 8,
+      "title": "第 8 關：物件導向初探 (Class 與 Object)",
+      "summary": "領悟軟體工程師的核心架構能力！把現實世界的事物抽象化為類別與物件。",
+      "estimatedMinutes": 25,
+      "xp": 100,
+      "content": {
+        "intro": "### 打造屬於你自己的程式宇宙：物件導向 (OOP) 🚀\n\n想像 `Class` (類別) 就像一張「汽車的設計藍圖」或「雞蛋糕的模型模具」；而從這張藍圖製造出來的每輛實體汽車，就是 `Object` (物件)。\n\n#### 基礎語法：\n```python\nclass Player:\n    def __init__(self, name, job):\n        self.name = name\n        self.job = job\n        self.hp = 100\n\n    def attack(self, target_name):\n        print(f\"{self.name} 對 {target_name} 發動了普通攻擊！\")\n\nhero = Player(\"亞瑟\", \"聖騎士\")\nhero.attack(\"哥布林\")\n```",
+        "tips": [
+          "__init__ 前後各有兩條底線，稱為魔術方法。",
+          "self 代表「這個物件自己」，透過 self.變數 可以在類別內部共享資料。"
+        ]
+      },
+      "quiz": {
+        "question": "在 Python 的類別方法中，第一個參數通常固定為 self，它的作用是什麼？",
+        "options": [
+          "代表當前呼叫該方法的實體物件本身，用來存取該物件的屬性與其他方法",
+          "用來設定該類別只能在自己電腦上執行，不能給別人使用",
+          "這是一個固定的數字常數，值永遠等於 1",
+          "代表系統管理員權限"
+        ],
+        "correctIndex": 0,
+        "explanation": "正確！self 指向當前的實體物件 (Instance)，讓方法知道要操作哪一個物件的屬性與狀態。"
+      },
+      "challenge": {
+        "title": "實作挑戰：寵物類別 Pet",
+        "instruction": "請建立一個類別 Pet，具備：\n1. 建構子 __init__(self, name, sound)\n2. 方法 speak(self)：印出 f\"{self.name} 發出叫聲：{self.sound}！\"\n最後實例化一個寵物：my_pet = Pet(\"波比\", \"汪汪\") 並呼叫 my_pet.speak()",
+        "starterCode": "# 請在此實作 Pet 類別並建立物件測試\n\n",
+        "expectedOutputs": [
+          "波比 發出叫聲：汪汪！"
+        ],
+        "hint": "class Pet: 內部定義 def __init__(self, name, sound): 與 def speak(self):"
+      }
+    }
+  ]
+}

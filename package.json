@@ -1,0 +1,29 @@
+{
+  "name": "codecraft-academy",
+  "version": "1.0.0",
+  "description": "CodeCraft Academy - Fullstack Educational Software for Learning Python and C++",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "test": "echo \"Ready to learn!\""
+  },
+  "keywords": [
+    "education",
+    "programming",
+    "python",
+    "cpp",
+    "learning-platform",
+    "codecraft"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1"
+  }
+}
